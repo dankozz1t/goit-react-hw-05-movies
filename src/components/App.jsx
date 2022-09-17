@@ -1,3 +1,19 @@
+import { Routes, Route } from 'react-router-dom';
+
+import Home from '../pages/Home';
+import Movies from '../pages/Movies';
+import NotFound from '../pages/NotFound';
+
+import { Layout } from './Layout/Layout';
+
 export const App = () => {
-  return <div>goit-react-hw-05-movies</div>;
+  return (
+    <Routes>
+      <Route path="/" element={<Layout />}>
+        <Route index element={<Home />} />
+        <Route path="movies" element={<Movies />} />
+      </Route>
+      <Route path="*" element={<NotFound />} />
+    </Routes>
+  );
 };
