@@ -1,22 +1,9 @@
-import Header from 'components/Header/Header';
 import React from 'react';
-import { NavLink, Outlet } from 'react-router-dom';
+import { Outlet } from 'react-router-dom';
+
+import Header from 'components/Header/Header';
+import Link from 'components/Link/Link';
 import Container from '../Container/Container';
-
-import styled from 'styled-components';
-
-export const Link = styled(NavLink)`
-  padding: 8px 16px;
-  border-radius: 4px;
-  text-decoration: none;
-  color: black;
-  font-weight: 500;
-
-  &.active {
-    color: white;
-    background-color: orangered;
-  }
-`;
 
 export const Layout = () => {
   return (
