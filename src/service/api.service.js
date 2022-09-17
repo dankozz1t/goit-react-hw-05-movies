@@ -15,20 +15,20 @@ export const fetchFilms = async () => {
   }
 };
 
-export const fetchFilmById = async id => {
+export const fetchFilmByName = async filmName => {
   try {
-    const url = `${BASE_URL}/movie/${id}?api_key=${API_KEY}`;
+    const url = `${BASE_URL}/search/movie?api_key=${API_KEY}&query=${filmName}`;
     const { data } = await axios.get(url);
 
-    return data;
+    return data.results;
   } catch (error) {
     console.error(error);
   }
 };
 
-export const fetchFilmByName = async filmName => {
+export const fetchFilmById = async id => {
   try {
-    const url = `${BASE_URL}/search/movie?api_key=${API_KEY}&query=${filmName}`;
+    const url = `${BASE_URL}/movie/${id}?api_key=${API_KEY}`;
     const { data } = await axios.get(url);
 
     return data;
@@ -61,6 +61,7 @@ export const fetchFilmReviews = async id => {
 
 export const api = {
   fetchFilms,
+  fetchFilmByName,
   fetchFilmById,
   fetchFilmCast,
   fetchFilmReviews,
