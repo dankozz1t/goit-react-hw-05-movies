@@ -10,7 +10,7 @@ function MovieDetails() {
   const { id } = useParams();
 
   const location = useLocation();
-  const backLocation = location.state?.from ? location.state?.from : '/';
+  const backLocation = location.state?.from ?? '/';
 
   useEffect(() => {
     api.fetchFilmById(id).then(data => {

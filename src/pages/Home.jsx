@@ -4,7 +4,7 @@ import { api } from 'service/api.service';
 
 export const Home = () => {
   const [films, setFilms] = useState([]);
-  const location = useLocation().pathname;
+  const location = useLocation();
 
   useEffect(() => {
     api.fetchFilms().then(({ data }) => {
@@ -19,7 +19,7 @@ export const Home = () => {
       <ul>
         {films.length > 0 &&
           films.map(({ id, title, poster_path }) => (
-            <li key={title}>
+            <li key={id}>
               <Link
                 to={`/movies/${id}`}
                 state={{ from: location }}
