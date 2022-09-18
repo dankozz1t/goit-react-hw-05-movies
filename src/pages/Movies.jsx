@@ -16,7 +16,7 @@ export const Movies = () => {
         setFilms(data);
       });
     }
-  }, []);
+  });
 
   const handleInputChange = e => {
     const name = e.target.value;
