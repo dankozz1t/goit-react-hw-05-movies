@@ -7,7 +7,7 @@ import { pathImageStabilization } from '../../../helper/pathImageStabilization';
 
 import { List, Item, Info } from './Cast.styles';
 
-function Cast() {
+const Cast = () => {
   const [cast, setCast] = useState({});
 
   const { id } = useParams();
@@ -42,6 +42,6 @@ function Cast() {
       </List>
     </>
   );
-}
+};
 
 export default Cast;

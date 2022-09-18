@@ -3,10 +3,10 @@ import React, { useState } from 'react';
 import { api } from 'service/api.service';
 
 import MovieList from 'components/Movie/MovieList/MovieList';
-import { Searchbar } from '../../components/Searchbar/Searchbar';
+import Searchbar from '../../components/Searchbar/Searchbar';
 import Container from '../../components/Container/Container';
 
-export const Movies = () => {
+const Movies = () => {
   const [films, setFilms] = useState([]);
 
   // First create fetch films (params)

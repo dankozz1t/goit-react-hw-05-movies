@@ -14,7 +14,7 @@ import {
   Comment,
 } from './Reviews.styles';
 
-function Reviews() {
+const Reviews = () => {
   const [reviews, setReviews] = useState({});
 
   const { id } = useParams();
@@ -55,6 +55,6 @@ function Reviews() {
       </List>
     </div>
   );
-}
+};
 
 export default Reviews;

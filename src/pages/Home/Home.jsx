@@ -5,7 +5,7 @@ import { api } from 'service/api.service';
 import Container from '../../components/Container/Container';
 import { Tittle } from './Home.styles';
 
-export const Home = () => {
+const Home = () => {
   const [films, setFilms] = useState([]);
 
   useEffect(() => {
