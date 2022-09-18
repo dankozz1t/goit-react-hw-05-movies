@@ -3,7 +3,7 @@ import { useParams } from 'react-router-dom';
 
 import { api } from 'service/api.service';
 
-import { pathImageStabilization } from '../helper/pathImageStabilization';
+import { pathImageStabilization } from '../../helper/pathImageStabilization';
 
 function Cast() {
   const [cast, setCast] = useState({});
