@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { api } from 'service/api.service';
 import { Link, useLocation, useSearchParams } from 'react-router-dom';
 
@@ -9,6 +9,14 @@ export const Movies = () => {
   const query = searchParams.get('name') ?? '';
 
   const location = useLocation();
+
+  useEffect(() => {
+    if (query) {
+      api.fetchFilmByName(query).then(data => {
+        setFilms(data);
+      });
+    }
+  }, []);
 
   const handleInputChange = e => {
     const name = e.target.value;
