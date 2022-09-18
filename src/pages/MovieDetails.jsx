@@ -1,3 +1,4 @@
+import { pathImageStabilization } from 'helper/pathImageStabilization';
 import React, { useState, useEffect } from 'react';
 import { Link, useParams, useLocation, Outlet } from 'react-router-dom';
 import { api } from 'service/api.service';
@@ -26,7 +27,7 @@ function MovieDetails() {
       <Link to={backLocation}> c--- Go to back</Link>
       <img
         width="250"
-        src={`https://image.tmdb.org/t/p/w500/${film.poster_path}`}
+        src={pathImageStabilization(film.poster_path)}
         alt={film.title}
       />
 

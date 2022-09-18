@@ -1,3 +1,4 @@
+import { pathImageStabilization } from 'helper/pathImageStabilization';
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { api } from 'service/api.service';
@@ -27,7 +28,7 @@ export const Home = () => {
               >
                 <img
                   width="50"
-                  src={`https://image.tmdb.org/t/p/w500/${poster_path}`}
+                  src={pathImageStabilization(poster_path)}
                   alt={title}
                 />
 

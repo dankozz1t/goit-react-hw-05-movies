@@ -1,3 +1,4 @@
+import { pathImageStabilization } from 'helper/pathImageStabilization';
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { api } from 'service/api.service';
@@ -26,14 +27,7 @@ function Reviews() {
             {comment.author_details.avatar_path && (
               <img
                 width="50"
-                src={
-                  comment.author_details.avatar_path?.includes('https')
-                    ? comment.author_details.avatar_path.slice(
-                        1,
-                        comment.author_details.avatar_path.length
-                      )
-                    : `https://image.tmdb.org/t/p/w500/${comment.author_details.avatar_path}`
-                }
+                src={pathImageStabilization(comment.author_details.avatar_path)}
                 alt={comment.author}
               />
             )}

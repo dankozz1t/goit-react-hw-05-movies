@@ -1,3 +1,4 @@
+import { pathImageStabilization } from 'helper/pathImageStabilization';
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { api } from 'service/api.service';
@@ -10,7 +11,7 @@ function Cast() {
 
   useEffect(() => {
     api.fetchFilmCast(id).then(({ data }) => {
-      setCast(data.cast);
+      setCast(data.cast.splice(0, 20));
     });
   }, [id]);
 
@@ -24,11 +25,7 @@ function Cast() {
           <li key={person.id}>
             <img
               width="50"
-              src={
-                person.profile_path
-                  ? `https://image.tmdb.org/t/p/w500/${person.profile_path}`
-                  : 'https://upload.wikimedia.org/wikipedia/commons/thumb/b/bc/Unknown_person.jpg/925px-Unknown_person.jpg'
-              }
+              src={pathImageStabilization(person.profile_path)}
               alt={person.original_name}
             />
             <p>{person.original_name}</p>

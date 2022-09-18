@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { api } from 'service/api.service';
 import { Link, useLocation, useSearchParams } from 'react-router-dom';
+import { pathImageStabilization } from 'helper/pathImageStabilization';
 
 export const Movies = () => {
   const [films, setFilms] = useState([]);
@@ -53,7 +54,7 @@ export const Movies = () => {
               >
                 <img
                   width="50"
-                  src={`https://image.tmdb.org/t/p/w500/${poster_path}`}
+                  src={pathImageStabilization(poster_path)}
                   alt={title}
                 />
 
