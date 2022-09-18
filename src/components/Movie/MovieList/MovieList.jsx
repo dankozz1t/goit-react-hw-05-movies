@@ -1,9 +1,11 @@
 import React from 'react';
+import PropTypes from 'prop-types';
+
 import MovieItem from '../MovieItem/MovieItem';
 
 import { List } from '../Movie.styles';
 
-export const MovieList = ({ films }) => {
+const MovieList = ({ films }) => {
   return (
     <List>
       {films.map(({ id, title, poster_path }) => (
@@ -11,6 +13,16 @@ export const MovieList = ({ films }) => {
       ))}
     </List>
   );
+};
+
+MovieList.propTypes = {
+  films: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.number.isRequired,
+      title: PropTypes.string.isRequired,
+      poster_path: PropTypes.string.isRequired,
+    })
+  ).isRequired,
 };
 
 export default MovieList;

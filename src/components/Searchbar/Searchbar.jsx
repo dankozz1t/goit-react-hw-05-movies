@@ -1,7 +1,7 @@
 import React from 'react';
 import { useSearchParams } from 'react-router-dom';
 
-// import PropTypes from 'prop-types';
+import PropTypes from 'prop-types';
 
 import {
   SearchForm,
@@ -10,13 +10,12 @@ import {
   SearchFormInput,
 } from './Searchbar.styles';
 
-export const Searchbar = ({ onSubmit }) => {
+const Searchbar = ({ onSubmit }) => {
   const [searchParams, setSearchParams] = useSearchParams();
   const query = searchParams.get('name') ?? '';
 
   const handleInputChange = e => {
     const name = e.target.value;
-    //   onChange(e.target.value);
 
     const nextParams = name !== '' ? { name } : {};
     setSearchParams(nextParams);
@@ -45,4 +44,8 @@ export const Searchbar = ({ onSubmit }) => {
   );
 };
 
-// Searchbar.propTypes = {};
+Searchbar.propTypes = {
+  onSubmit: PropTypes.func.isRequired,
+};
+
+export default Searchbar;

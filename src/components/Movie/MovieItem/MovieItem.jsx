@@ -1,11 +1,13 @@
 import React from 'react';
 import { useLocation } from 'react-router-dom';
 
+import PropTypes from 'prop-types';
+
 import { pathImageStabilization } from 'helper/pathImageStabilization';
 
 import { Item, Link } from '../Movie.styles';
 
-export const MovieItem = ({ id, poster_path, title }) => {
+const MovieItem = ({ id, poster_path, title }) => {
   const location = useLocation();
 
   return (
@@ -25,6 +27,12 @@ export const MovieItem = ({ id, poster_path, title }) => {
       </Link>
     </Item>
   );
+};
+
+MovieItem.propTypes = {
+  id: PropTypes.number.isRequired,
+  poster_path: PropTypes.string.isRequired,
+  title: PropTypes.string.isRequired,
 };
 
 export default MovieItem;
