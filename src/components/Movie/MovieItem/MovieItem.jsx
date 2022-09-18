@@ -31,7 +31,7 @@ const MovieItem = ({ id, poster_path, title }) => {
 
 MovieItem.propTypes = {
   id: PropTypes.number.isRequired,
-  poster_path: PropTypes.string.isRequired,
+  poster_path: PropTypes.string,
   title: PropTypes.string.isRequired,
 };
 
