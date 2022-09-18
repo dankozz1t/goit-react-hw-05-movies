@@ -50,17 +50,20 @@ const MovieDetails = () => {
             alt={film.title}
           />
           <InfoBox>
-            <Tittle>{film.title}</Tittle>
+            <Tittle>{film.title ? film.title : 'No Info'}</Tittle>
             <Text>
-              <TittleText>User Score: </TittleText> {film.popularity}
+              <TittleText>User Score: </TittleText>{' '}
+              {film.popularity ? film.popularity : 0}
             </Text>
             <Text>
               <TittleText>Overview: </TittleText>
-              {film.overview}
+              {film.overview ? film.overview : 'No Info'}
             </Text>
             <Text>
               <TittleText>Genres: </TittleText>
-              {film.genres && film.genres.map(value => value.name).join(', ')}
+              {film.genres.length > 0
+                ? film.genres.map(value => value.name).join(', ')
+                : 'No Info'}
             </Text>
           </InfoBox>
         </Box>

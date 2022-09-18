@@ -21,26 +21,26 @@ const Cast = () => {
   if (Object.keys(cast).length === 0) {
     return <p>We don't have any information about cast for this movie :(</p>;
   }
+
   return (
-    <>
-      <List>
-        {cast.map(person => (
-          <Item key={person.id}>
-            <img
-              width="100"
-              src={pathImageStabilization(person.profile_path)}
-              alt={person.original_name}
-            />
-            <Info>
-              <h3>{person.original_name}</h3>
-              <p>
-                <b>Character: </b> {person.character}
-              </p>
-            </Info>
-          </Item>
-        ))}
-      </List>
-    </>
+    <List>
+      {cast.map(person => (
+        <Item key={person.id}>
+          <img
+            width="100"
+            src={pathImageStabilization(person.profile_path)}
+            alt={person.original_name}
+          />
+          <Info>
+            <h3>{person.original_name ? person.original_name : 'No Info'}</h3>
+            <p>
+              <b>Character: </b>{' '}
+              {person.character ? person.character : 'No Info'}
+            </p>
+          </Info>
+        </Item>
+      ))}
+    </List>
   );
 };
 
