@@ -13,7 +13,7 @@ function MovieDetails() {
   const backLocation = location.state?.from ?? '/';
 
   useEffect(() => {
-    api.fetchFilmById(id).then(data => {
+    api.fetchFilmById(id).then(({ data }) => {
       setFilm(data);
     });
   }, [id]);

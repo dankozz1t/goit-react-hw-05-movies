@@ -9,8 +9,8 @@ function Reviews() {
   const { id } = useParams();
 
   useEffect(() => {
-    api.fetchFilmReviews(id).then(data => {
-      setReviews(data);
+    api.fetchFilmReviews(id).then(({ data }) => {
+      setReviews(data.results);
     });
   }, [id]);
 

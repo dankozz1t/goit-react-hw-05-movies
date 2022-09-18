@@ -9,8 +9,8 @@ function Cast() {
   const { id } = useParams();
 
   useEffect(() => {
-    api.fetchFilmCast(id).then(data => {
-      setCast(data);
+    api.fetchFilmCast(id).then(({ data }) => {
+      setCast(data.cast);
     });
   }, [id]);
 
