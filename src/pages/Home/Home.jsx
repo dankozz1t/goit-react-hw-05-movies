@@ -3,6 +3,7 @@ import MovieList from '../../components/Movie/MovieList/MovieList';
 
 import { api } from 'service/api.service';
 import Container from '../../components/Container/Container';
+import { Tittle } from './Home.styles';
 
 export const Home = () => {
   const [films, setFilms] = useState([]);
@@ -16,7 +17,7 @@ export const Home = () => {
   return (
     <main>
       <Container>
-        <h2>Trending today</h2>
+        <Tittle>Trending today</Tittle>
 
         {films.length > 0 && <MovieList films={films} />}
       </Container>
