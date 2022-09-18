@@ -3,7 +3,9 @@ import { useParams } from 'react-router-dom';
 
 import { api } from 'service/api.service';
 
-import { pathImageStabilization } from '../../helper/pathImageStabilization';
+import { pathImageStabilization } from '../../../helper/pathImageStabilization';
+
+import { List, Item, Info } from './Cast.styles';
 
 function Cast() {
   const [cast, setCast] = useState({});
@@ -20,23 +22,25 @@ function Cast() {
     return <p>We don't have any information about cast for this movie :(</p>;
   }
   return (
-    <div style={{ display: 'flex' }}>
-      <ul>
+    <>
+      <List>
         {cast.map(person => (
-          <li key={person.id}>
+          <Item key={person.id}>
             <img
-              width="50"
+              width="100"
               src={pathImageStabilization(person.profile_path)}
               alt={person.original_name}
             />
-            <p>{person.original_name}</p>
-            <p>
-              <b>Character: {person.character}</b>
-            </p>
-          </li>
+            <Info>
+              <h3>{person.original_name}</h3>
+              <p>
+                <b>Character: </b> {person.character}
+              </p>
+            </Info>
+          </Item>
         ))}
-      </ul>
-    </div>
+      </List>
+    </>
   );
 }
 
