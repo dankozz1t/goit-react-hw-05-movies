@@ -6,6 +6,12 @@ import Container from '../Container/Container';
 
 import styled from 'styled-components';
 
+const Navigation = styled.nav`
+  display: flex;
+  gap: 10px;
+  padding: 10px;
+`;
+
 const Link = styled(NavLink)`
   padding: 8px 16px;
   border-radius: 4px;
@@ -21,15 +27,17 @@ const Link = styled(NavLink)`
 
 const Layout = () => {
   return (
-    <Container>
+    <>
       <Header>
-        <nav>
-          <Link to="/">Home</Link>
-          <Link to="/movies">Movies</Link>
-        </nav>
+        <Container>
+          <Navigation>
+            <Link to="/">Home</Link>
+            <Link to="/movies">Movies</Link>
+          </Navigation>
+        </Container>
       </Header>
       <Outlet />
-    </Container>
+    </>
   );
 };
 
