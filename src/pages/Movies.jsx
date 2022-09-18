@@ -16,7 +16,8 @@ export const Movies = () => {
         setFilms(data);
       });
     }
-  });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   const handleInputChange = e => {
     const name = e.target.value;
