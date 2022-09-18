@@ -11,9 +11,5 @@ export const pathImageStabilization = pathImage => {
     return `https://image.tmdb.org/t/p/w500${pathImage}`;
   }
 
-  if (pathImage.includes('https')) {
-    return pathImage.slice(1, pathImage.length);
-  }
-
   return `https://image.tmdb.org/t/p/w500/${pathImage}`;
 };
