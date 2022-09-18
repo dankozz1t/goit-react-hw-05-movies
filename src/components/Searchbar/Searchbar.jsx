@@ -1,5 +1,4 @@
-import React from 'react';
-import { useSearchParams } from 'react-router-dom';
+import React, { useState } from 'react';
 
 import PropTypes from 'prop-types';
 
@@ -10,20 +9,17 @@ import {
   SearchFormInput,
 } from './Searchbar.styles';
 
-const Searchbar = ({ onSubmit }) => {
-  const [searchParams, setSearchParams] = useSearchParams();
-  const query = searchParams.get('name') ?? '';
+const Searchbar = ({ onSubmit, query }) => {
+  const [value, setValue] = useState(query);
 
   const handleInputChange = e => {
-    const name = e.target.value;
-
-    const nextParams = name !== '' ? { name } : {};
-    setSearchParams(nextParams);
+    setValue(e.target.value);
   };
 
   const handleFormSubmit = e => {
     e.preventDefault();
-    onSubmit(query);
+    onSubmit(value);
+    setValue('');
   };
 
   return (
@@ -37,7 +33,7 @@ const Searchbar = ({ onSubmit }) => {
         autoComplete="off"
         autoFocus
         placeholder="Search movies"
-        value={query}
+        value={value}
         onChange={handleInputChange}
       />
     </SearchForm>
