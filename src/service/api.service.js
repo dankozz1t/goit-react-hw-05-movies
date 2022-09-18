@@ -15,7 +15,7 @@ export const fetchFilms = async () => {
   }
 };
 
-export const fetchFilmByName = async filmName => {
+export const fetchFilmsByName = async filmName => {
   try {
     const url = `${BASE_URL}/search/movie?api_key=${API_KEY}&query=${filmName}`;
     const { data } = await axios.get(url);
@@ -61,7 +61,7 @@ export const fetchFilmReviews = async id => {
 
 export const api = {
   fetchFilms,
-  fetchFilmByName,
+  fetchFilmsByName,
   fetchFilmById,
   fetchFilmCast,
   fetchFilmReviews,

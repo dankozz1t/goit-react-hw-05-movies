@@ -12,7 +12,7 @@ export const Movies = () => {
 
   useEffect(() => {
     if (query) {
-      api.fetchFilmByName(query).then(data => {
+      api.fetchFilmsByName(query).then(data => {
         setFilms(data);
       });
     }
@@ -28,7 +28,7 @@ export const Movies = () => {
 
   const handleFromSubmit = e => {
     e.preventDefault();
-    api.fetchFilmByName(query).then(data => {
+    api.fetchFilmsByName(query).then(data => {
       setFilms(data);
     });
   };
