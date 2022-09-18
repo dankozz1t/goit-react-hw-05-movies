@@ -1,9 +1,9 @@
-import { pathImageStabilization } from 'helper/pathImageStabilization';
 import React, { useState, useEffect } from 'react';
-import { Link, useParams, useLocation, Outlet } from 'react-router-dom';
+import { NavLink, useParams, useLocation, Outlet } from 'react-router-dom';
+
 import { api } from 'service/api.service';
 
-// import PropTypes from 'prop-types';
+import { pathImageStabilization } from '../helper/pathImageStabilization';
 
 function MovieDetails() {
   const [film, setFilm] = useState({});
@@ -24,7 +24,7 @@ function MovieDetails() {
   }
   return (
     <div style={{ display: 'flex' }}>
-      <Link to={backLocation}> c--- Go to back</Link>
+      <NavLink to={backLocation}> c--- Go to back</NavLink>
       <img
         width="250"
         src={pathImageStabilization(film.poster_path)}
@@ -46,10 +46,10 @@ function MovieDetails() {
         <h3>Additional information</h3>
         <ul>
           <li>
-            <Link to="cast">Cast</Link>
+            <NavLink to="cast">Cast</NavLink>
           </li>
           <li>
-            <Link to="reviews">Reviews</Link>
+            <NavLink to="reviews">Reviews</NavLink>
           </li>
         </ul>
         <Outlet />
@@ -57,7 +57,5 @@ function MovieDetails() {
     </div>
   );
 }
-
-// MovieDetails.propTypes = {};
 
 export default MovieDetails;

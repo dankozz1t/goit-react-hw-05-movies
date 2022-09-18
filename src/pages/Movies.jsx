@@ -1,15 +1,15 @@
 import React, { useState, useEffect } from 'react';
+import { useSearchParams } from 'react-router-dom';
+
 import { api } from 'service/api.service';
-import { Link, useLocation, useSearchParams } from 'react-router-dom';
-import { pathImageStabilization } from 'helper/pathImageStabilization';
+
+import MovieList from 'components/Movie/MovieList/MovieList';
 
 export const Movies = () => {
   const [films, setFilms] = useState([]);
 
   const [searchParams, setSearchParams] = useSearchParams();
   const query = searchParams.get('name') ?? '';
-
-  const location = useLocation();
 
   useEffect(() => {
     if (query) {
@@ -43,26 +43,7 @@ export const Movies = () => {
         <button type="submit">Search</button>
       </form>
 
-      <ul>
-        {films.length > 0 &&
-          films.map(({ id, title, poster_path }) => (
-            <li key={id}>
-              <Link
-                to={`/movies/${id}`}
-                state={{ from: location }}
-                style={{ display: 'flex' }}
-              >
-                <img
-                  width="50"
-                  src={pathImageStabilization(poster_path)}
-                  alt={title}
-                />
-
-                <p>{title}</p>
-              </Link>
-            </li>
-          ))}
-      </ul>
+      {films.length > 0 && <MovieList films={films} />}
     </div>
   );
 };

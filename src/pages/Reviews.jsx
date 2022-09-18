@@ -1,8 +1,9 @@
-import { pathImageStabilization } from 'helper/pathImageStabilization';
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
+
 import { api } from 'service/api.service';
-// import PropTypes from 'prop-types';
+
+import { pathImageStabilization } from '../helper/pathImageStabilization';
 
 function Reviews() {
   const [reviews, setReviews] = useState({});
@@ -42,7 +43,5 @@ function Reviews() {
     </div>
   );
 }
-
-// Cast.propTypes = {};
 
 export default Reviews;

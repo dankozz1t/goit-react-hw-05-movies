@@ -1,8 +1,9 @@
-import { pathImageStabilization } from 'helper/pathImageStabilization';
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
+
 import { api } from 'service/api.service';
-// import PropTypes from 'prop-types';
+
+import { pathImageStabilization } from '../helper/pathImageStabilization';
 
 function Cast() {
   const [cast, setCast] = useState({});
@@ -38,7 +39,5 @@ function Cast() {
     </div>
   );
 }
-
-// Cast.propTypes = {};
 
 export default Cast;
