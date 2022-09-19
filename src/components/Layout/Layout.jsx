@@ -31,7 +31,9 @@ const Layout = () => {
       <Header>
         <Container>
           <Navigation>
-            <Link to="/">Home</Link>
+            <Link end to="/">
+              Home
+            </Link>
             <Link to="/movies">Movies</Link>
           </Navigation>
         </Container>
