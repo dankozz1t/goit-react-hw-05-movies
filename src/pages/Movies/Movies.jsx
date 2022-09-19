@@ -14,13 +14,17 @@ const Movies = () => {
 
   useEffect(() => {
     if (query) {
-      api.fetchFilmsByName(query).then(({ data }) => {
-        if (data.results.length === 0) {
-          setSearchParams('');
-        }
+      try {
+        api.fetchFilmsByName(query).then(({ data }) => {
+          if (data.results.length === 0) {
+            setSearchParams('');
+          }
 
-        setFilms(data.results);
-      });
+          setFilms(data.results);
+        });
+      } catch (error) {
+        console.log(error);
+      }
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [query]);

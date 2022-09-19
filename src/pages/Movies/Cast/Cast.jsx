@@ -13,9 +13,13 @@ const Cast = () => {
   const { id } = useParams();
 
   useEffect(() => {
-    api.fetchFilmCast(id).then(({ data }) => {
-      setCast(data.cast);
-    });
+    try {
+      api.fetchFilmCast(id).then(({ data }) => {
+        setCast(data.cast);
+      });
+    } catch (error) {
+      console.log(error);
+    }
   }, [id]);
 
   if (Object.keys(cast).length === 0) {

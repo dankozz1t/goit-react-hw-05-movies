@@ -20,9 +20,13 @@ const Reviews = () => {
   const { id } = useParams();
 
   useEffect(() => {
-    api.fetchFilmReviews(id).then(({ data }) => {
-      setReviews(data.results);
-    });
+    try {
+      api.fetchFilmReviews(id).then(({ data }) => {
+        setReviews(data.results);
+      });
+    } catch (error) {
+      console.log(error);
+    }
   }, [id]);
 
   if (Object.keys(reviews).length === 0) {

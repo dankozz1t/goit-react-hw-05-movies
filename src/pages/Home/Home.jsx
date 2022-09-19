@@ -9,9 +9,13 @@ const Home = () => {
   const [films, setFilms] = useState([]);
 
   useEffect(() => {
-    api.fetchFilms().then(({ data }) => {
-      setFilms(data.results);
-    });
+    try {
+      api.fetchFilms().then(({ data }) => {
+        setFilms(data.results);
+      });
+    } catch (error) {
+      console.log(error);
+    }
   }, []);
 
   return (
