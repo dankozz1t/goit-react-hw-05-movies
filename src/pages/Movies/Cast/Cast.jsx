@@ -14,7 +14,7 @@ const Cast = () => {
 
   useEffect(() => {
     api.fetchFilmCast(id).then(({ data }) => {
-      setCast(data.cast.splice(0, 20));
+      setCast(data.cast);
     });
   }, [id]);
 
