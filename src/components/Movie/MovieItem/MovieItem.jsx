@@ -12,11 +12,7 @@ const MovieItem = ({ id, poster_path, title }) => {
 
   return (
     <Item key={id}>
-      <Link
-        to={`/movies/${id}`}
-        state={{ from: location }}
-        style={{ display: 'flex' }}
-      >
+      <Link to={`/movies/${id}`} state={{ from: location }}>
         <img
           width="250"
           src={pathImageStabilization(poster_path)}
