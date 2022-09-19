@@ -53,7 +53,7 @@ const MovieDetails = () => {
             <Tittle>{film.title ? film.title : 'No Info'}</Tittle>
             <Text>
               <TittleText>User Score: </TittleText>{' '}
-              {film.popularity ? film.popularity : 0}
+              {film.vote_average ? film.vote_average * 10 : 0}%
             </Text>
             <Text>
               <TittleText>Overview: </TittleText>
